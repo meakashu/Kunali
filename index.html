@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Poplu! 🎉</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400..700&family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+    
+    <!-- Fireworks Library -->
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Welcome Section -->
+    <section id="welcome" class="full-screen">
+        <div class="welcome-content">
+            <h1 class="recipient-name">Happy Birthday, Poplu! 🎉</h1>
+            <!-- <p class="recipient-age">Celebrating [Age] Amazing Years!</p> -->
+            <p class="personal-message">
+                "Happy Birthday re Madharchod!
+Tera janamdin aaya hai, aur main soch raha hoon — kaise tujhe wish karun bina tujhe gaali diye...
+Par fir yaad aaya, tu toh woh behan ke lode hai jisko bina gaali ke pyaar hi feel nahi hota! 😂
+            </p>
+            <button id="confetti-button">Let's Celebrate!</button>
+            <!-- Mute Toggle Placeholder -->
+            <div class="audio-controls">
+                <audio id="background-audio" loop></audio>
+                <button id="prev-track">⏮️ Prev</button>
+                <button id="mute-toggle">🔇 Mute</button> 
+                <button id="next-track">Next ⏭️</button>
+            </div>
+        </div>
+        <canvas id="confetti-canvas"></canvas> 
+    </section>
+
+    <!-- 2. Fireworks Celebration -->
+    <!-- Original content moved to slider section -->
+    <!-- <section id="fireworks" class="full-screen"></section> -->
+
+    <!-- 3. Friendship Timeline -->
+    <!-- Section removed as requested -->
+
+    <!-- 4. Embedded Wishes -->
+    <!-- Section removed as requested -->
+
+    <!-- 5. Mini-Game -->
+    <!-- Section removed as requested -->
+
+    <!-- Memory Jar Section Removed -->
+
+    <!-- Guestbook Section Removed -->
+
+    <!-- Digital Gifts Section Removed -->
+    
+    <!-- New Media Gallery Section -->
+    <!-- Section removed as requested -->
+    
+    <!-- Video Wishes Slider Section -->
+    <section id="video-wishes-slider">
+         <!-- Canvas for background fireworks -->
+        <canvas id="slider-fireworks-canvas"></canvas> 
+
+        <h2>Birthday Wishes Just For You! 💌</h2>
+        <!-- Slider main container -->
+        <div class="swiper video-swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="video-slide-content">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/EKNC-pSCess" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <p class="sender-name">From: AKASH SINGH</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-slide-content">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/HHfKFlqQeXQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <p class="sender-name">From: RAJNI SINGH</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-slide-content">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/-ZVJ6nTETT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <p class="sender-name">From: CHANDRA BHUSHAN SINGH</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-slide-content">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/NhAK4xZNmow" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <p class="sender-name">From: SURAJ SAHU</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-slide-content">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/u2iDyNCKwvs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <p class="sender-name">From: ADITYA MISHRA</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-slide-content">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/LFr62lzr0TA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <p class="sender-name">From: AMAN SAHU</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-slide-content">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/ik_t-IMmvWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <p class="sender-name">From: NITIN DUBEY</p>
+                    </div>
+                </div>
+            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+        </div>
+
+        <!-- Moved Fireworks Controls/Message -->
+        <div class="slider-fireworks-controls">
+            <button id="fireworks-button">Stop the Show</button>
+            <p id="fireworks-message">Happy Birthday Kunal!</p>
+        </div>
+    </section>
+
+    <!-- Surprise Message Box -->
+    <div id="surprise-box" class="hidden"></div>
+
+    <!-- Special Message Modal -->
+    <div id="special-message-modal" class="modal hidden">
+        <!-- Content removed as requested -->
+    </div>
+
+    <!-- E-Card Modal -->
+    <!-- Modal removed as section was deleted -->
+
+    <!-- Image Modal for Gallery -->
+    <!-- Modal removed as section was deleted -->
+
+    <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 

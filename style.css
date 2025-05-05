@@ -1,0 +1,674 @@
+/* Basic Reset & Body Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Nicer base font */
+    color: #444; /* Slightly softer black */
+    line-height: 1.7;
+    background-color: #fff; /* Default white background */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    cursor: url('custom-cursor.png') 16 0, auto; /* Custom Cursor */
+}
+
+h1, h2, h3 {
+    margin-bottom: 1.5rem; /* Increase spacing slightly */
+    font-weight: 600; /* Bolder headings */
+    color: #333;
+}
+
+h2 {
+    font-size: 2.2rem; /* Slightly larger section titles */
+}
+
+section {
+    padding: 5rem 2rem; /* Increase section padding */
+    min-height: 80vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; 
+    border-bottom: 1px solid #eee; /* Subtle separator line */
+}
+
+section:last-of-type {
+    border-bottom: none; /* No line after the last section */
+}
+
+.full-screen {
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 8px; /* Rounded corners for images */
+}
+
+button, .gift-link {
+    padding: 0.8rem 1.8rem; /* Slightly more padding */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px; /* Pill shape buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 1.5rem; /* More space above buttons */
+    text-decoration: none; /* Ensure links look like buttons */
+    display: inline-block; /* Proper link styling */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* General Button Colors (Can override per section) */
+button {
+    background-color: #ff69b4; /* Hot pink */
+    color: white;
+}
+button:hover {
+    background-color: #ff85c1;
+    transform: scale(1.03) translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Welcome Section Adjustments */
+#welcome {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); /* More vibrant gradient */
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite; /* Add subtle gradient animation */
+    color: #fff;
+    border-bottom: none; /* No border needed after hero */
+    display: flex; /* Ensure flex is explicitly set */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem; /* Add padding to section itself */
+    box-sizing: border-box;
+}
+
+/* Keyframes for Gradient Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.welcome-content {
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly increased overlay darkness */
+    padding: 2.5rem 3rem; /* Adjusted padding */
+    border-radius: 20px; 
+    max-width: 800px; /* Slightly reduced max width */
+    width: 90%; /* Ensure it shrinks on smaller views */
+    margin: 1rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    box-sizing: border-box; /* Important for width/padding */
+}
+.recipient-name {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2.8rem, 8vw, 4.8rem); /* Responsive font size */
+    color: #FFD700; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+    margin-bottom: 0.8rem; /* Reduced bottom margin */
+    line-height: 1.2; /* Adjust line height */
+}
+.personal-message {
+    font-family: 'Caveat', cursive; 
+    font-weight: 700; 
+    font-size: clamp(1.5rem, 5vw, 2.3rem); /* Responsive font size */
+    line-height: 1.7; /* Adjust line height */
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Increased shadow slightly */
+    max-width: 650px; /* Reduced max width */
+    margin: 1.5rem auto; /* Adjusted vertical spacing */
+}
+
+/* Confetti Button specific style */
+#confetti-button {
+    background-color: #ffffff; 
+    color: #e73c7e; 
+    font-weight: bold;
+    padding: clamp(0.7rem, 2.5vw, 1rem) clamp(1.5rem, 5vw, 2rem); /* Responsive padding */
+    font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
+    margin-top: 2rem; /* Ensure space above */
+}
+
+#confetti-button:hover {
+    background-color: #f8f8f8;
+    color: #e73c7e;
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+#confetti-canvas {
+    position: absolute; /* Ensure absolute positioning */
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1; 
+    pointer-events: none; 
+}
+
+/* Audio Controls Position Refinement */
+.audio-controls {
+    position: absolute; 
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 20; 
+    display: flex; 
+    gap: 12px; 
+    background-color: rgba(0, 0, 0, 0.15); /* Subtle background for controls */
+    padding: 8px 12px; 
+    border-radius: 50px; 
+}
+
+#mute-toggle, #prev-track, #next-track {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    border: none; /* Remove border */
+    padding: 0.5rem 1rem; 
+    font-size: 0.9rem;
+    border-radius: 20px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#mute-toggle:hover, #prev-track:hover, #next-track:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05); /* Subtle hover scale */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Timeline Adjustments */
+/* Styles removed as section was deleted */
+
+/* Wishes Adjustments */
+/* Styles removed as section was deleted */
+
+/* Game Adjustments */
+/* Styles removed as section was deleted */
+
+/* Memory Jar Adjustments */
+/* Styles removed as section was deleted */
+
+/* Guestbook Styles */
+/* Styles removed as section was deleted */
+
+/* Digital Gifts Styles */
+/* Styles removed as section was deleted */
+
+/* Media Queries for Responsiveness */
+
+@media screen and (max-width: 768px) {
+    .welcome-content {
+        padding: 2rem 1.5rem; 
+        width: 90%; 
+    }
+    /* Clamp handles most size adjustments, but we can fine-tune if needed */
+     .recipient-name {
+        margin-bottom: 0.5rem;
+     }
+     .personal-message {
+        margin: 1rem auto;
+        line-height: 1.6;
+     }
+     #confetti-button {
+        margin-top: 1.5rem;
+     }
+
+    /* Adjust Audio Controls for Mobile */
+    .audio-controls {
+        position: static; /* Change from absolute */
+        bottom: auto; /* Remove absolute positioning */
+        right: auto;
+        margin-top: 2rem; /* Add space below confetti button */
+        justify-content: center; /* Center buttons */
+        background-color: transparent; /* Remove corner background */
+        padding: 0; /* Remove corner padding */
+        width: 100%; /* Allow it to take width for centering */
+    }
+
+    #mute-toggle, #prev-track, #next-track {
+        /* Optional: Slightly adjust button size/padding if needed for touch */
+        padding: 0.6rem 1.1rem; 
+        font-size: 1rem;
+    }
+
+    // ... other rules ...
+}
+
+@media screen and (max-width: 480px) {
+     .welcome-content {
+        padding: 1.5rem 1rem;
+        width: 95%;
+    }
+    
+    /* Further adjustments if needed for very small screens */
+    .audio-controls {
+        margin-top: 1.5rem;
+    }
+     /* Clamp should handle small sizes well */
+    // ... other rules ...
+}
+
+/* 4. Wishes Section */
+#wishes {
+    background-color: #e0f7fa; /* Light blue background */
+}
+
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    width: 100%;
+}
+
+.video-card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.video-card img {
+    width: 100%;
+    height: 150px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.video-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.play-button {
+    background-color: #4CAF50; /* Green play button */
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+    /* Added for flex display in JS */
+    display: flex; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
+}
+
+.modal.visible .modal-content {
+     transform: scale(1);
+}
+
+/* Video Modal Specific */
+#modal-video {
+    max-width: 100%; /* Use 100% to fit content box */
+    max-height: 70vh;
+    display: block;
+    margin: auto;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Special Message Modal Specific Styles */
+.special-message-content {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); /* Match welcome bg? */
+    color: #fff;
+    padding: 40px;
+}
+
+#special-message-text {
+    font-family: 'Dancing Script', cursive; /* Apply the cool font */
+    font-size: 2rem; /* Adjust size as needed */
+    line-height: 1.8;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.special-close-button {
+    color: #fff; /* White close button */
+    opacity: 0.8;
+    font-size: 35px;
+}
+
+.special-close-button:hover {
+    color: #eee;
+    opacity: 1;
+}
+
+/* E-Card Modal Specific Styles */
+/* Styles removed as section was deleted */
+
+/* 5. Game Section */
+/* Styles removed as section was deleted */
+
+/* Memory Jar Adjustments */
+/* Styles removed as section was deleted */
+
+/* Guestbook Styles */
+/* Styles removed as section was deleted */
+
+/* Audio Controls */
+.audio-controls {
+    position: absolute; /* Position relative to welcome section */
+    bottom: 20px;
+    right: 20px;
+    z-index: 20; /* Above canvas and content overlay */
+    display: flex; /* Align buttons horizontally */
+    gap: 10px; /* Space between buttons */
+}
+
+#mute-toggle, #prev-track, #next-track {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0; /* Override default button margin */
+}
+
+#mute-toggle:hover, #prev-track:hover, #next-track:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Digital Gifts Styles */
+/* Styles removed as section was deleted */
+
+/* E-Card Modal Specific Styles */
+/* Styles removed as section was deleted */
+
+/* Surprise Box */
+#surprise-box {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #ff69b4; /* Pink background */
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 10000; /* Ensure it's on top */
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly lower */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    pointer-events: none; /* Don't block clicks */
+    font-size: 1.1rem;
+    font-weight: bold;
+    max-width: 300px;
+}
+
+#surprise-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Helper class to hide initially */
+.hidden {
+    display: none; /* Can also use opacity/visibility if preferred */
+}
+
+/* New Media Gallery Styles */
+/* Styles removed as section was deleted */
+
+/* Image Modal Styles */
+/* Styles removed as section was deleted */
+
+/* Adjust modal display for flex */
+.modal {
+    display: flex; /* Keep this */
+    // ... other modal styles ...
+}
+
+/* Responsive Styles for Gallery */
+/* Styles removed as section was deleted */
+
+/* Game Section */
+/* Styles removed as section was deleted */
+
+/* Fireworks Adjustments */
+/* Styles removed as section was deleted */
+
+/* Video Wishes Slider Styles */
+#video-wishes-slider {
+    background-color: #050510; /* Use dark bg here now */
+    padding: 4rem 0; 
+    overflow: hidden; 
+    position: relative; /* Needed for absolute positioning of canvas */
+    min-height: 100vh; /* Ensure it takes height */
+}
+
+/* Background Fireworks Canvas */
+#slider-fireworks-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Behind content */
+    pointer-events: none; /* Allow clicks through */
+}
+
+/* Ensure content is above fireworks canvas */
+#video-wishes-slider h2,
+.video-swiper,
+.slider-fireworks-controls {
+    position: relative; /* Needed for z-index */
+    z-index: 5; 
+}
+
+#video-wishes-slider h2 {
+    color: #fff; /* Make heading visible on dark bg */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    margin-bottom: 1rem; /* Adjust spacing */
+}
+
+.video-swiper {
+    max-width: 700px; 
+    width: 90%; 
+    margin: 1rem auto 0 auto; /* Adjust margin */
+    padding: 1rem 4rem; 
+    position: relative; 
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1); /* Darker transparent bg */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff; /* White background for slide content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden; /* Clip content */
+}
+
+.video-slide-content {
+    padding: 1rem 1rem 0.5rem 1rem; /* Padding inside slide */
+    width: 100%;
+}
+
+.video-embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 8px; /* Rounded corners for video area */
+    margin-bottom: 0.8rem;
+}
+
+.video-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.sender-name {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Swiper Navigation Buttons */
+.video-swiper .swiper-button-prev,
+.video-swiper .swiper-button-next {
+    color: #6a5acd; /* Slate Blue */
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 40px; 
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.video-swiper .swiper-button-prev:hover,
+.video-swiper .swiper-button-next:hover {
+     background-color: rgba(255, 255, 255, 0.9);
+     color: #483d8b; /* Darker Slate Blue */
+}
+
+.video-swiper .swiper-button-prev::after,
+.video-swiper .swiper-button-next::after {
+    font-size: 1.2rem; /* Adjust arrow size */
+    font-weight: bold;
+}
+
+/* Adjustments for Responsive */
+@media screen and (max-width: 768px) {
+    .video-swiper {
+        padding: 1rem 3.5rem;
+    }
+    .video-swiper .swiper-button-prev,
+    .video-swiper .swiper-button-next {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+    }
+     .video-swiper .swiper-button-prev::after,
+    .video-swiper .swiper-button-next::after {
+        font-size: 1rem; 
+    }
+     .sender-name {
+        font-size: 0.9rem;
+    }
+    #video-wishes-slider h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #video-wishes-slider h2 {
+        font-size: 1.6rem;
+    }
+    .video-swiper {
+        padding: 1rem; 
+        width: 95%;
+    }
+    .video-swiper .swiper-button-prev,
+    .video-swiper .swiper-button-next {
+        display: none; /* Hide buttons on very small screens if desired */
+    }
+}
+
+/* Moved Fireworks Controls Container */
+.slider-fireworks-controls {
+    margin-top: 2rem; /* Space above controls */
+    text-align: center;
+}
+
+/* Style for the message (previously in #fireworks) */
+#fireworks-message {
+    color: #FFD700; 
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Pacifico', cursive; 
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    margin: 0.5rem 0 1rem 0; /* Adjust spacing around message */
+    opacity: 1; /* Start visible */
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none; 
+}
+
+#fireworks-message.hidden { /* Style when hidden by JS */
+    opacity: 0;
+}
+
+/* Style for the button (previously in #fireworks) */
+#fireworks-button {
+    background-color: #ff4d4d; /* Red stop button */
+    color: white;
+    margin-top: 0; /* Remove default margin-top if message is present */
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+#fireworks-button:hover {
+    background-color: #e13d3d;
+}
+
+#fireworks-button.hidden { /* Allow hiding the button too */
+     display: none;
+}
+
+/* Image Modal Styles */
+/* Styles removed as section was deleted */
+// ... rest of styles ... 
